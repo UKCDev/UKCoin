@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = UKCoin-qt
-VERSION = 1.2
+VERSION = 2.0
 INCLUDEPATH += src src/json src/qt
 QT += network gui core
 
