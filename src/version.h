@@ -30,7 +30,7 @@ static const int DATABASE_VERSION = 70509;
 // network protocol versioning
 //
 
-static const int PROTOCOL_VERSION = 60016;
+static const int PROTOCOL_VERSION = 70002;
 
 // intial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 210;
@@ -47,7 +47,7 @@ static const int NOBLKS_VERSION_START = 70002;
 static const int NOBLKS_VERSION_END = 70009;
 
 // BIP 0031, pong message, is enabled for all versions AFTER this one
-static const int BIP0031_VERSION = 60000;
+static const int BIP0031_VERSION = 60002;
 
 // "mempool" command, enhanced "getdata" behavior starts with this version:
 static const int MEMPOOL_GD_VERSION = 60002;
