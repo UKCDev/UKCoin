@@ -87,19 +87,18 @@ public:
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
         nTargetSpacing = 50; // Initially ~50 Sec during PoW
-        if(nBestHeight > nLastPoWBlock) // Scaled down for PoS only phase
+        if(nBestHeight > 50000) // Scaled down for PoS only phase
         {
           nTargetSpacing = 30;
         }
         if(nBestHeight > nStartPoSBlock) // Scaled down for PoW/PoS twin phase
         {
-          if(nBestHeight <= nLastPoWBlock)
+          if(nBestHeight <= 50000)
           {
             nTargetSpacing = 30;
           }
         }
         nTargetTimespan = 12 * nTargetSpacing;
-        nLastPoWBlock = 50000;
         nStartPoSBlock = 3000;
     }
 
@@ -157,7 +156,6 @@ public:
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
 
         nTargetSpacing = 30;
-        nLastPoWBlock = 5000;
         nStartPoSBlock = 300;
     }
     virtual Network NetworkID() const { return CChainParams::TESTNET; }
