@@ -958,7 +958,7 @@ void static PruneOrphanBlocks()
 // miner's coin base reward
 int64_t GetProofOfWorkReward(int64_t nHeight, int64_t nFees)
 {
-    int64_t nSubsidy = 0 * COIN;
+    int64_t nSubsidy = 150 * COIN;
     if(pindexBest->nHeight < 100)
     {
         nSubsidy = 20000000 * COIN;
@@ -1003,6 +1003,10 @@ int64_t GetProofOfWorkReward(int64_t nHeight, int64_t nFees)
     {
         nSubsidy = 2500 * COIN;
     }
+    else if(pindexBest->nHeight < 51999)
+    {
+        nSubsidy = 0 * COIN;
+    }
 
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(nSubsidy), nSubsidy);
 
@@ -1017,7 +1021,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
     {
         nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 2; // 74% Per Annual Year
     }
-    else if(pindexBest->nHeight < 50000)
+    else if(pindexBest->nHeight < 55000)
     {
         nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 10000;
     }
