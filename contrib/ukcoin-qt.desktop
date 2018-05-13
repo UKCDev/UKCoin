@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=UKC
+Comment=UKC P2P Cryptocurrency
+Comment[fr]=UKC, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=UKC, eşten eşe kriptografik sanal para birimi
+Exec=ukcoin-qt %u
+Terminal=false
+Type=Application
+Icon=ukcoin128
+MimeType=x-scheme-handler/ukcoin;
+Categories=Office;Finance;
