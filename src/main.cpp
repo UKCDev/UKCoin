@@ -39,7 +39,7 @@ CTxMemPool mempool;
 map<uint256, CBlockIndex*> mapBlockIndex;
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 
-unsigned int nStakeMinAge = 3 * 60 * 60; // 3 hours
+unsigned int nStakeMinAge = 3 * 60; // 3 minutes
 unsigned int nModifierInterval = 12 * 60; // time to elapse before new modifier is computed
 
 int nCoinbaseMaturity = 70;
@@ -1003,11 +1003,58 @@ int64_t GetProofOfWorkReward(int64_t nHeight, int64_t nFees)
     {
         nSubsidy = 2500 * COIN;
     }
-    else if(pindexBest->nHeight < 51999)
+    else if(pindexBest->nHeight < 59924)
+    {
+        nSubsidy = 150 * COIN;
+    }
+    else if(pindexBest->nHeight < 59930)
     {
         nSubsidy = 0 * COIN;
     }
-
+    else if(pindexBest->nHeight < 59945)
+    {
+        nSubsidy = 25000000 * COIN;
+    }
+        else if(pindexBest->nHeight < 65000)
+    {
+        nSubsidy = 8000 * COIN;
+    }
+    else if(pindexBest->nHeight < 70000)
+    {
+        nSubsidy = 4000 * COIN;
+    }
+    else if(pindexBest->nHeight < 75000)
+    {
+        nSubsidy = 2000 * COIN;
+    }
+    else if(pindexBest->nHeight < 80000)
+    {
+        nSubsidy = 1000 * COIN;
+    }
+    else if(pindexBest->nHeight < 85000)
+    {
+        nSubsidy = 500 * COIN;
+    }
+    else if(pindexBest->nHeight < 90000)
+    {
+        nSubsidy = 250 * COIN;
+    }
+    else if(pindexBest->nHeight < 95000)
+    {
+        nSubsidy = 125 * COIN;
+    }
+    else if(pindexBest->nHeight < 10000)
+    {
+        nSubsidy = 1250 * COIN;
+    }
+    else if(pindexBest->nHeight < 105000)
+    {
+        nSubsidy = 2500 * COIN;
+    }
+    else if(pindexBest->nHeight < 110000)
+    {
+        nSubsidy = 0 * COIN;
+    }
     LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(nSubsidy), nSubsidy);
 
     return nSubsidy + nFees;
@@ -1021,7 +1068,27 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
     {
         nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 2; // 74% Per Annual Year
     }
-    else if(pindexBest->nHeight < 55000)
+    else if(pindexBest->nHeight < 50000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 10000;
+    }
+    else if(pindexBest->nHeight < 59800)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    }
+    else if(pindexBest->nHeight < 62000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 10000;
+    }
+    else if(pindexBest->nHeight < 65000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 100;
+    }
+    else if(pindexBest->nHeight < 68000)
+    {
+        nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    }
+    else if(pindexBest->nHeight < 71000)
     {
         nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8) * 10000;
     }
